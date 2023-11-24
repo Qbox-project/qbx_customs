@@ -7,12 +7,12 @@ A free-to-use and modify vehicle customization resource forked from [Popcornrp-c
 
 [Preview](https://www.youtube.com/watch?v=8UcGmHJ3mUo)
 
-#Dependencies
+# Dependencies
 
 - [ox_lib](https://github.com/overextended/ox_lib)
 - [qbx_core](https://github.com/Qbox-project/qbx_core)
 
-#Features
+# Features
 
 - Job Whitelist for free Customization
 - Disable or Enable customization options
