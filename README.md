@@ -25,9 +25,11 @@ A free-to-use and modify vehicle customization resource forked from [Popcornrp-c
 
 # Info
 
-This release is a thank you to the FiveM open-source community and all the developers who have poured hours of their free time into creating helpful, free resources that I've used on my servers in the past and continue to use. Thank you!
+The foundation for qbx_customs, Popcornrp-Customs, was created following the subsequent discovery of QB-Customs containing stolen/leaked code. Popcornrp-Customs is a total replacement for QB-Customs, meant to replace it and improve on its original functionality.
 
-Popcornrp-Customs was created following the subsequent discovery of QB-Customs containing stolen/leaked code. Popcornrp-Customs is a total replacement for QB-Customs and is fully compatible with QB-Garages. However, Popcornrp-Customs only depends on ox_lib and can be used with any framework.
+Popcornrp-customs was released as a thank-you to the FiveM open-source community and all the developers who have poured thousands of hours of their free time into creating helpful, free resources.
+
+Thank you!
 
 # Credits
 
