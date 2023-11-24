@@ -29,11 +29,9 @@ This release is a thank you to the FiveM open-source community and all the devel
 
 Popcornrp-Customs was created following the subsequent discovery of QB-Customs containing stolen/leaked code. Popcornrp-Customs is a total replacement for QB-Customs and is fully compatible with QB-Garages. However, Popcornrp-Customs only depends on ox_lib and can be used with any framework.
 
-Find Ox_lib Here: https://github.com/overextended/ox_lib
-
 # Credits
 
-Thank you Jorn (Discord: jorn08), for his hard work on this resource. None of this would be possible without your hardwork!
+Thank you, Jorn (Discord: jorn08), for your hard work on this resource. None of this would be possible without your hard work!
 
 Qbx_customs also includes functionality from the cool dragcam resource by Jorn, check it out!:  https://github.com/Jorn08/dragcam
 
