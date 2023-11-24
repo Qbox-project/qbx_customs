@@ -33,7 +33,7 @@ Thank you!
 
 # Credits
 
-Thank you, Jorn (Discord: jorn08), for your hard work on this resource. None of this would be possible without your hard work!
+Thank you, Jorn (Discord: jorn08), for your hard work on this resource. None of this would be possible without you!
 
 Qbx_customs also includes functionality from the cool dragcam resource by Jorn, check it out!:  https://github.com/Jorn08/dragcam
 
