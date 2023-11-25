@@ -14,7 +14,7 @@ return function(duplicate, mod, props, level)
             props?.title or 'Customs',
             props?.position or 'top',
             props?.duration,
-            props?.description,,
+            props?.description,
             props?.position or 'top',
             props?.style,
             props?.icon or 'fa-solid fa-wrench',

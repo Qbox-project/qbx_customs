@@ -21,7 +21,7 @@ local function removeMoney(source, amount)
         return true
     elseif bankBalance >= amount then
         player.Functions.RemoveMoney('bank', amount, 'Customs')
-        exports.qbx_core:Notify(source, ('You paid $%s from your bank account'):format(amount), success)
+        exports.qbx_core:Notify(source, ('You paid $%s from your bank account'):format(amount), 'success')
         return true
     end
 
