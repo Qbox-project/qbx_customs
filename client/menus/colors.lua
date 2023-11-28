@@ -5,6 +5,7 @@ local originalPearlescent, originalWheelColor
 local originalWindowTint
 local originalLabelIndex = 1
 local originalInterior
+local originalLivery = {}
 
 local function xenon()
     originalToggle = IsToggleModOn(vehicle, 22)
