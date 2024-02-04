@@ -43,7 +43,7 @@ local function performance()
         options[#options + 1] = {
             id = mod.id,
             label = mod.label,
-            description = priceLabel(config.prices[mod.id]),
+            description = priceLabel(sharedConfig.prices[mod.id]),
             values = modLabels,
             close = true,
             defaultIndex = currentMod + 2,

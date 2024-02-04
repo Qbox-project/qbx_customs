@@ -1,6 +1,6 @@
 local zoneId
 local allowAccess = false
-local sharedConfig = require('config.shared')
+local sharedConfig = require 'config.shared'
 
 ---@param vertices vector3[]
 ---@return vector3

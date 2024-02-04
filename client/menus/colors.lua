@@ -70,7 +70,7 @@ local function pearlescent()
     local option = {
         id = 'pearlescent',
         label = Lang:t('menus.options.pearlescent'),
-        description = ('%s%s'):format(config.currency, config.prices['colors']),
+        description = ('%s%s'):format(config.currency, sharedConfig.prices['colors']),
         ids = ids,
         values = labels,
         close = true,
@@ -104,7 +104,7 @@ local function wheelcolor()
     local option = {
         id = 'wheelcolor',
         label = Lang:t('menus.options.wheelColor'),
-        description = ('%s%s'):format(config.currency, config.prices['colors']),
+        description = ('%s%s'):format(config.currency, sharedConfig.prices['colors']),
         ids = ids,
         values = labels,
         close = true,

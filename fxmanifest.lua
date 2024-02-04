@@ -26,6 +26,7 @@ ui_page 'web/index.html'
 
 files {
     'client/**/*.lua',
+    'config/*.lua',
     'web/**/*',
     'carcols_gen9.meta',
     'carmodcols_gen9.meta',
