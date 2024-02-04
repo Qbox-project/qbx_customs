@@ -6,11 +6,10 @@ description 'qbx_customs'
 repository 'https://github.com/Qbox-project/qbx_customs'
 version '1.0.0'
 
+ox_lib 'locale'
+
 shared_scripts {
     '@ox_lib/init.lua',
-    '@qbx_core/shared/locale.lua',
-    'locales/en.lua',
-    'locales/*.lua',
     'config.lua'
 }
 
@@ -26,6 +25,7 @@ server_script 'server/main.lua'
 ui_page 'web/index.html'
 
 files {
+    'locales/*.json',
     'client/**/*.lua',
     'web/**/*',
     'carcols_gen9.meta',

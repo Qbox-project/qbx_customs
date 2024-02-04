@@ -10,17 +10,17 @@ local function neon()
         originalNeon[i] = enabled
 
         options[i] = {
-            label = Lang:t('menus.neon.neon', {label = Config.Neon[i].label, state = ''}),
+            label = locale('menus.neon.neon', Config.Neon[i].label, ''),
             description = ('%s%s'):format(Config.Currency, Config.Prices['colors']),
             values = {
-                Lang:t('menus.general.disabled'),
-                Lang:t('menus.general.enabled'),
+                locale('menus.general.disabled'),
+                locale('menus.general.enabled'),
             },
             close = true,
             defaultIndex = enabled and 2 or 1,
             set = function(index)
                 SetVehicleNeonLightEnabled(vehicle, i - 1, index == 2)
-                return originalNeon[i] == (index == 2), Lang:t('menus.neon.neon', {label = Config.Neon[i].label, state = index == 2 and string.lower(Lang:t('menus.general.enabled')) or string.lower(Lang:t('menus.general.disabled'))})
+                return originalNeon[i] == (index == 2), locale('menus.neon.neon', Config.Neon[i].label, index == 2 and string.lower(locale('menus.general.enabled')) or string.lower(locale('menus.general.disabled')))
             end,
             restore = function()
                 SetVehicleNeonLightEnabled(vehicle, i - 1, originalNeon[i])
@@ -41,14 +41,14 @@ local function neon()
     end
 
     options[5] = {
-        label = Lang:t('menus.neon.color'),
+        label = locale('menus.neon.color'),
         close = true,
         values = neonLabels,
         rgbValues = rgbValues,
         set = function(index)
             local rgb = Config.NeonColors[index]
             SetVehicleNeonLightsColour(vehicle, rgb.r, rgb.g, rgb.b)
-            return originalLabelIndex == index, Lang:t('menus.neon.installed', {neon = Config.NeonColors[index].label})
+            return originalLabelIndex == index, locale('menus.neon.installed', {neon = Config.NeonColors[index].label})
         end,
         restore = function()
             local rgb = Config.NeonColors[originalLabelIndex]
@@ -64,7 +64,7 @@ local menu = {
     id = 'customs-neon',
     canClose = true,
     disableInput = false,
-    title = Lang:t('menus.neon.title'),
+    title = locale('menus.neon.title'),
     position = 'top-left',
     options = {},
 }
