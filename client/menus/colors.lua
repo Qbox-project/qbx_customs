@@ -135,7 +135,7 @@ local function windowTint()
         values = windowTintLabels,
         set = function(index)
             SetVehicleWindowTint(vehicle, index - 1)
-            return originalWindowTint == index - 1, locale('menus.options.windowTint.installed',windowTintLabels[index])
+            return originalWindowTint == index - 1, locale('menus.options.windowTint.installed', windowTintLabels[index])
         end,
         restore = function()
             SetVehicleWindowTint(vehicle, originalWindowTint)
