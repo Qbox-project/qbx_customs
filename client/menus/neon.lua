@@ -1,8 +1,8 @@
 local originalNeon = {}
 local lastIndex = 1
 local originalLabelIndex = 1
-local config = require('config.client')
-local sharedConfig = require('config.shared')
+local config = require 'config.client'
+local sharedConfig = require 'config.shared'
 
 local function neon()
     local options = {}

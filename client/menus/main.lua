@@ -5,7 +5,7 @@ local inMenu = false
 local dragcam = require('client.dragcam')
 local startDragCam = dragcam.startDragCam
 local stopDragCam = dragcam.stopDragCam
-local config = require('config.client')
+local config = require 'config.client'
 
 local menu = {
     id = mainMenuId,

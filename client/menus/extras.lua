@@ -1,7 +1,7 @@
 local originalExtras = {}
 local extrasLastIndex = 1
-local config = require('config.client')
-local sharedConfig = require('config.shared')
+local config = require 'config.client'
+local sharedConfig = require 'config.shared'
 
 local function extras()
     local options = {}

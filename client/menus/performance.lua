@@ -2,8 +2,8 @@ local originalMods = {}
 local originalTurbo
 local lastIndex
 local VehicleClass = require('client.enums.VehicleClass')
-local config = require('config.client')
-local sharedConfig = require('config.shared')
+local config = require 'config.client'
+local sharedConfig = require 'config.shared'
 
 local function priceLabel(price)
     if type(price) ~= 'table' then

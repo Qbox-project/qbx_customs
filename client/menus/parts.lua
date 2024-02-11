@@ -2,8 +2,8 @@ local originalMods = {}
 partsLastIndex = 1
 local VehicleClass = require('client.enums.VehicleClass')
 local originalPlateIndex
-local config = require('config.client')
-local sharedConfig = require('config.shared')
+local config = require 'config.client'
+local sharedConfig = require 'config.shared'
 
 local function plateIndex()
     originalPlateIndex = GetVehicleNumberPlateTextIndex(vehicle)

@@ -25,8 +25,8 @@ server_script 'server/main.lua'
 ui_page 'web/index.html'
 
 files {
-    'client/**/*.lua',
     'config/*.lua',
+    'client/**/*.lua',
     'web/**/*',
     'carcols_gen9.meta',
     'carmodcols_gen9.meta',

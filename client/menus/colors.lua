@@ -6,8 +6,8 @@ local originalWindowTint
 local originalLabelIndex = 1
 local originalInterior
 local originalLivery = {}
-local config = require('config.client')
-local sharedConfig = require('config.shared')
+local config = require 'config.client'
+local sharedConfig = require 'config.shared'
 
 local function xenon()
     originalToggle = IsToggleModOn(vehicle, 22)

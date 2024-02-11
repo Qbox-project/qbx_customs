@@ -4,8 +4,8 @@ local originalRearWheel
 local lastIndex = 1
 local WheelType = require('client.enums.WheelType')
 local VehicleClass = require('client.enums.VehicleClass')
-local config = require('config.client')
-local sharedConfig = require('config.shared')
+local config = require 'config.client'
+local sharedConfig = require 'config.shared'
 
 ---@param wheelType WheelType
 local function isWheelTypeAllowed(wheelType)

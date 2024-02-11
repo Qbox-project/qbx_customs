@@ -1,8 +1,8 @@
 local originalPaint = {}
 local lastIndex
 local primaryPaint
-local config = require('config.client')
-local sharedConfig = require('config.shared')
+local config = require 'config.client'
+local sharedConfig = require 'config.shared'
 
 local function paintMods()
     local options = {}

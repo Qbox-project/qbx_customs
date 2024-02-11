@@ -1,4 +1,4 @@
-local sharedConfig = require('config.shared')
+local sharedConfig = require 'config.shared'
 
 ---@return number
 local function getModPrice(mod, level)
