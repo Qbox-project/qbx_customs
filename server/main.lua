@@ -1,4 +1,4 @@
-lib.versionCheck('https://github.com/Qbox-project/qbx_customs')
+lib.versionCheck('Qbox-project/qbx_customs')
 
 ---@return number
 local function getModPrice(mod, level)
