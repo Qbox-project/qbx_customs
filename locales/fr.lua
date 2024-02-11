@@ -14,7 +14,9 @@ local Translations = {
     },
     dragCam = {
         zoomIn = 'Zoomer',
-        zoomOut = 'Dézoomer'
+        zoomOut = 'Dézoomer',
+        toggleDoors = 'Ouvrir/Fermer les portes',
+        changeView = 'Activer/Désactiver la vue à la première personne',
     },
     textUI = {
         tune = 'Appuyez sur [E] pour personnaliser votre voiture'
