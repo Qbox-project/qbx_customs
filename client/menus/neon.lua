@@ -1,6 +1,8 @@
 local originalNeon = {}
 local lastIndex = 1
 local originalLabelIndex = 1
+local config = require 'config.client'
+local sharedConfig = require 'config.shared'
 
 local function neon()
     local options = {}
@@ -10,17 +12,17 @@ local function neon()
         originalNeon[i] = enabled
 
         options[i] = {
-            label = Lang:t('menus.neon.neon', {label = Config.Neon[i].label, state = ''}),
-            description = ('%s%s'):format(Config.Currency, Config.Prices['colors']),
+            label = locale('menus.neon.neon', config.neon[i].label, ''),
+            description = ('%s%s'):format(config.currency, sharedConfig.prices['colors']),
             values = {
-                Lang:t('menus.general.disabled'),
-                Lang:t('menus.general.enabled'),
+                locale('menus.general.disabled'),
+                locale('menus.general.enabled'),
             },
             close = true,
             defaultIndex = enabled and 2 or 1,
             set = function(index)
                 SetVehicleNeonLightEnabled(vehicle, i - 1, index == 2)
-                return originalNeon[i] == (index == 2), Lang:t('menus.neon.neon', {label = Config.Neon[i].label, state = index == 2 and string.lower(Lang:t('menus.general.enabled')) or string.lower(Lang:t('menus.general.disabled'))})
+                return originalNeon[i] == (index == 2), locale('menus.neon.neon', config.neon[i].label, index == 2 and string.lower(locale('menus.general.enabled')) or string.lower(locale('menus.general.disabled')))
             end,
             restore = function()
                 SetVehicleNeonLightEnabled(vehicle, i - 1, originalNeon[i])
@@ -32,7 +34,7 @@ local function neon()
 
     local rgbValues = {}
     local neonLabels = {}
-    for i, v in ipairs(Config.NeonColors) do
+    for i, v in ipairs(config.neonColors) do
         neonLabels[i] = v.label
         rgbValues[i] = {r = v.r, g = v.g, b = v.b}
         if v.r == r and v.g == g and v.b == b then
@@ -41,17 +43,17 @@ local function neon()
     end
 
     options[5] = {
-        label = Lang:t('menus.neon.color'),
+        label = locale('menus.neon.color'),
         close = true,
         values = neonLabels,
         rgbValues = rgbValues,
         set = function(index)
-            local rgb = Config.NeonColors[index]
+            local rgb = config.neonColors[index]
             SetVehicleNeonLightsColour(vehicle, rgb.r, rgb.g, rgb.b)
-            return originalLabelIndex == index, Lang:t('menus.neon.installed', {neon = Config.NeonColors[index].label})
+            return originalLabelIndex == index, locale('menus.neon.installed', {neon = config.neonColors[index].label})
         end,
         restore = function()
-            local rgb = Config.NeonColors[originalLabelIndex]
+            local rgb = config.neonColors[originalLabelIndex]
             SetVehicleNeonLightsColour(vehicle, rgb.r, rgb.g, rgb.b)
         end,
         defaultIndex = originalLabelIndex,
@@ -64,7 +66,7 @@ local menu = {
     id = 'customs-neon',
     canClose = true,
     disableInput = false,
-    title = Lang:t('menus.neon.title'),
+    title = locale('menus.neon.title'),
     position = 'top-left',
     options = {},
 }

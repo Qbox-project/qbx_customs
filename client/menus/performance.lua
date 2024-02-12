@@ -2,17 +2,19 @@ local originalMods = {}
 local originalTurbo
 local lastIndex
 local VehicleClass = require('client.enums.VehicleClass')
+local config = require 'config.client'
+local sharedConfig = require 'config.shared'
 
 local function priceLabel(price)
     if type(price) ~= 'table' then
-        return ('%s%s'):format(Config.Currency, price)
+        return ('%s%s'):format(config.currency, price)
     end
 
     local copy = table.clone(price)
     table.remove(copy, 1)
 
     for i = 1, #copy do
-        copy[i] = ('%d: %s%s'):format(i, Config.Currency, copy[i])
+        copy[i] = ('%d: %s%s'):format(i, config.currency, copy[i])
     end
 
     return table.concat(copy, ' | ')
@@ -21,7 +23,7 @@ end
 local function performance()
     local options = {}
 
-    for _, mod in ipairs(Config.Mods) do
+    for _, mod in ipairs(config.mods) do
         local modCount = GetNumVehicleMods(vehicle, mod.id)
 
         if mod.category ~= 'performance'
@@ -30,7 +32,7 @@ local function performance()
         then goto continue end
 
         local modLabels = {}
-        modLabels[1] = Lang:t('menus.general.stock')
+        modLabels[1] = locale('menus.general.stock')
         for i = -1, modCount - 1 do
             modLabels[i + 2] = GetModLabel(vehicle, mod.id, i)
         end
@@ -41,7 +43,7 @@ local function performance()
         options[#options + 1] = {
             id = mod.id,
             label = mod.label,
-            description = priceLabel(Config.Prices[mod.id]),
+            description = priceLabel(sharedConfig.prices[mod.id]),
             values = modLabels,
             close = true,
             defaultIndex = currentMod + 2,
@@ -61,14 +63,14 @@ local function performance()
     if GetVehicleClass(vehicle) ~= VehicleClass.Cycles then
         options[#options + 1] = {
             id = 18,
-            label = Lang:t('menus.performance.turbo'),
-            description = ('%s%s'):format(Config.Currency, Config.Prices[18]),
-            values = {Lang:t('menus.general.disabled'), Lang:t('menus.general.enabled')},
+            label = locale('menus.performance.turbo'),
+            description = ('%s%s'):format(config.currency, sharedConfig.prices[18]),
+            values = {locale('menus.general.disabled'), locale('menus.general.enabled')},
             close = true,
             defaultIndex = originalTurbo and 2 or 1,
             set = function(index)
                 ToggleVehicleMod(vehicle, 18, index == 2)
-                return originalTurbo == (index == 2), ('%s %s'):format(Lang:t('menus.performance.turbo'), index == 2 and string.lower(Lang:t('menus.general.enabled')) or string.lower(Lang:t('menus.general.disabled')))
+                return originalTurbo == (index == 2), ('%s %s'):format(locale('menus.performance.turbo'), index == 2 and string.lower(locale('menus.general.enabled')) or string.lower(locale('menus.general.disabled')))
             end,
             restore = function()
                 ToggleVehicleMod(vehicle, 18, originalTurbo)
@@ -85,7 +87,7 @@ end
 
 local menu = {
     id = 'customs-performance',
-    title = Lang:t('menus.performance.title'),
+    title = locale('menus.performance.title'),
     canClose = true,
     disableInput = false,
     options = {},

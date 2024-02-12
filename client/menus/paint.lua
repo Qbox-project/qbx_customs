@@ -1,6 +1,8 @@
 local originalPaint = {}
 local lastIndex
 local primaryPaint
+local config = require 'config.client'
+local sharedConfig = require 'config.shared'
 
 local function paintMods()
     local options = {}
@@ -9,7 +11,7 @@ local function paintMods()
     originalPaint.primary = primary
     originalPaint.secondary = secondary
 
-    for category, values in pairs(Config.Paints) do
+    for category, values in pairs(config.paints) do
         local labels = {}
         local ids = {}
         local selectedIndex = 1
@@ -24,7 +26,7 @@ local function paintMods()
 
         options[#options + 1] = {
             ids = ids,
-            description = ('%s%s'):format(Config.Currency, Config.Prices['colors']),
+            description = ('%s%s'):format(config.currency, sharedConfig.prices['colors']),
             label = category,
             values = labels,
             close = true,
@@ -53,7 +55,7 @@ local function onSubmit(selected, scrollIndex, args)
     local duplicate = option.ids[scrollIndex] == originalPaint[primaryPaint and 'primary' or 'secondary']
 
     local success = InstallMod(duplicate, 'colors', {
-        description = Lang:t('menus.general.applied', {element = option.values[scrollIndex]}),
+        description = locale('menus.general.applied', option.values[scrollIndex]),
         icon = 'fas fa-paint-brush',
     })
 
@@ -87,7 +89,7 @@ end
 return function(primary)
     primaryPaint = primary
     menu.options = paintMods()
-    menu.title = primaryPaint and Lang:t('menus.paint.primary') or Lang:t('menus.paint.secondary')
+    menu.title = primaryPaint and locale('menus.paint.primary') or locale('menus.paint.secondary')
     lib.registerMenu(menu, onSubmit)
     return menu.id
 end

@@ -1,10 +1,12 @@
+lib.versionCheck('Qbox-project/qbx_customs')
+local sharedConfig = require 'config.shared'
 
 ---@return number
 local function getModPrice(mod, level)
     if mod == 'cosmetic' or mod == 'colors' or mod == 18 then
-        return Config.Prices[mod] --[[@as number]]
+        return sharedConfig.prices[mod] --[[@as number]]
     else
-        return Config.Prices[mod][level]
+        return sharedConfig.prices[mod][level]
     end
 end
 
@@ -17,11 +19,11 @@ local function removeMoney(source, amount)
     local bankBalance = player.Functions.GetMoney('bank')
 
     if cashBalance >= amount then
-        player.Functions.RemoveMoney('cash', amount, Lang:t('general.payReason'))
+        player.Functions.RemoveMoney('cash', amount, locale('general.payReason'))
         return true
     elseif bankBalance >= amount then
-        player.Functions.RemoveMoney('bank', amount, Lang:t('general.payReason'))
-        exports.qbx_core:Notify(source, Lang:t('notifications.success.paid', {amount = amount}), 'success')
+        player.Functions.RemoveMoney('bank', amount, locale('general.payReason'))
+        exports.qbx_core:Notify(source, locale('notifications.success.paid', amount), 'success')
         return true
     end
 
@@ -32,7 +34,7 @@ end
 lib.callback.register('qbx_customs:server:pay', function(source, mod, level)
     local zone = lib.callback.await('qbx_customs:client:zone', source)
 
-    for i, v in ipairs(Config.Zones) do
+    for i, v in ipairs(sharedConfig.zones) do
         if i == zone and v.freeMods then
             local playerJob = exports.qbx_core:GetPlayer(source)?.PlayerData?.job?.name
             for _, job in ipairs(v.freeMods) do
@@ -50,7 +52,7 @@ end)
 lib.callback.register('qbx_customs:server:repair', function(source, bodyHealth)
     local zone = lib.callback.await('qbx_customs:client:zone', source)
 
-    for i, v in ipairs(Config.Zones) do
+    for i, v in ipairs(sharedConfig.zones) do
         if i == zone and v.freeRepair then
             local playerJob = exports.qbx_core:GetPlayer(source)?.PlayerData?.job?.name
             for _, job in ipairs(v.freeRepair) do

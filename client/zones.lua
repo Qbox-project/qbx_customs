@@ -1,5 +1,6 @@
 local zoneId
 local allowAccess = false
+local sharedConfig = require 'config.shared'
 
 ---@param vertices vector3[]
 ---@return vector3
@@ -20,7 +21,7 @@ local function calculatePolyzoneCenter(vertices)
 end
 
 CreateThread(function()
-    for _, v in ipairs(Config.Zones) do
+    for _, v in ipairs(sharedConfig.zones) do
         lib.zones.poly({
             points = v.points,
             onEnter = function(s)
@@ -43,7 +44,7 @@ CreateThread(function()
                     return
                 end
 
-                lib.showTextUI(Lang:t('textUI.tune'), {
+                lib.showTextUI(locale('textUI.tune'), {
                     icon = 'fa-solid fa-car',
                     position = 'left-center',
                 })
