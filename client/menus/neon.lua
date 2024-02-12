@@ -22,7 +22,7 @@ local function neon()
             defaultIndex = enabled and 2 or 1,
             set = function(index)
                 SetVehicleNeonLightEnabled(vehicle, i - 1, index == 2)
-                return originalNeon[i] == (index == 2), locale('menus.neon.neon', config.neon[i].label, index == 2 and string.lower(locale('menus.general.enabled')) or string.lower(locale('menus.general.disabled')))
+                return originalNeon[i] == (index == 2), locale('menus.neon.neon', config.neon[i].label, ', ' .. (index == 2 and string.lower(locale('menus.general.enabled')) or string.lower(locale('menus.general.disabled'))))
             end,
             restore = function()
                 SetVehicleNeonLightEnabled(vehicle, i - 1, originalNeon[i])
