@@ -1,11 +1,12 @@
 lib.versionCheck('Qbox-project/qbx_customs')
+local sharedConfig = require 'config.shared'
 
 ---@return number
 local function getModPrice(mod, level)
     if mod == 'cosmetic' or mod == 'colors' or mod == 18 then
-        return Config.Prices[mod] --[[@as number]]
+        return sharedConfig.prices[mod] --[[@as number]]
     else
-        return Config.Prices[mod][level]
+        return sharedConfig.prices[mod][level]
     end
 end
 
@@ -33,7 +34,7 @@ end
 lib.callback.register('qbx_customs:server:pay', function(source, mod, level)
     local zone = lib.callback.await('qbx_customs:client:zone', source)
 
-    for i, v in ipairs(Config.Zones) do
+    for i, v in ipairs(sharedConfig.zones) do
         if i == zone and v.freeMods then
             local playerJob = exports.qbx_core:GetPlayer(source)?.PlayerData?.job?.name
             for _, job in ipairs(v.freeMods) do
@@ -51,7 +52,7 @@ end)
 lib.callback.register('qbx_customs:server:repair', function(source, bodyHealth)
     local zone = lib.callback.await('qbx_customs:client:zone', source)
 
-    for i, v in ipairs(Config.Zones) do
+    for i, v in ipairs(sharedConfig.zones) do
         if i == zone and v.freeRepair then
             local playerJob = exports.qbx_core:GetPlayer(source)?.PlayerData?.job?.name
             for _, job in ipairs(v.freeRepair) do

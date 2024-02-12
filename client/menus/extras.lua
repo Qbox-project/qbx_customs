@@ -1,5 +1,7 @@
 local originalExtras = {}
 local extrasLastIndex = 1
+local config = require 'config.client'
+local sharedConfig = require 'config.shared'
 
 local function extras()
     local options = {}
@@ -12,7 +14,7 @@ local function extras()
 
         options[#options + 1] = {
             label = ('Extra %d'):format(i),
-            description = ('%s%s'):format(Config.Currency, Config.Prices['cosmetic']),
+            description = ('%s%s'):format(config.currency, sharedConfig.prices['cosmetic']),
             close = true,
             values = {locale('menus.general.enabled'), locale('menus.general.disabled')},
             set = function(selected, index)

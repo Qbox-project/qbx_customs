@@ -10,11 +10,11 @@ ox_lib 'locale'
 
 shared_scripts {
     '@ox_lib/init.lua',
-    'config.lua'
 }
 
 client_scripts {
     '@qbx_core/modules/playerdata.lua',
+    '@qbx_core/modules/lib.lua',
     'client/utils.lua',
     'client/menus/main.lua',
     'client/zones.lua',
@@ -22,12 +22,10 @@ client_scripts {
 
 server_script 'server/main.lua'
 
-ui_page 'web/index.html'
-
 files {
     'locales/*.json',
+    'config/*.lua',
     'client/**/*.lua',
-    'web/**/*',
     'carcols_gen9.meta',
     'carmodcols_gen9.meta',
 }

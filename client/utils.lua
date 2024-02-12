@@ -1,10 +1,12 @@
+local config = require 'config.client'
+
 ---@param vehicle number
 ---@param modType number
 ---@param modValue number
 ---@return string
 function GetModLabel (vehicle, modType, modValue)
-    if Config.ModLabels[modType] then
-        for _, mod in ipairs(Config.ModLabels[modType]) do
+    if config.modLabels[modType] then
+        for _, mod in ipairs(config.modLabels[modType]) do
             if mod.id == modValue then return mod.label end
         end
     end
@@ -37,7 +39,10 @@ function InstallMod(duplicate, mod, props, level)
             props?.icon or 'fa-solid fa-wrench',
             props?.iconColor
         )
-        SendNUIMessage({sound = true})
+        qbx.playAudio({
+            audioName = 'PICK_UP',
+            audioRef = 'HUD_FRONTEND_DEFAULT_SOUNDSET'
+        })
         return true
     end
 
