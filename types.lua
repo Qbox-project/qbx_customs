@@ -1,4 +1,4 @@
---- @meta
+---@meta
 ---@class blipOptions
 ---@field sprite integer -- Blip sprite
 ---@field color integer -- Blip color
