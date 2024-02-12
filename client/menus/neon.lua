@@ -50,7 +50,7 @@ local function neon()
         set = function(index)
             local rgb = config.neonColors[index]
             SetVehicleNeonLightsColour(vehicle, rgb.r, rgb.g, rgb.b)
-            return originalLabelIndex == index, locale('menus.neon.installed', {neon = config.neonColors[index].label})
+            return originalLabelIndex == index, locale('menus.neon.installed', config.neonColors[index].label)
         end,
         restore = function()
             local rgb = config.neonColors[originalLabelIndex]
