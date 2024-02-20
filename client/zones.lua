@@ -1,6 +1,7 @@
 local zoneId
 local allowAccess = false
 local sharedConfig = require 'config.shared'
+local openCustoms = require('client.menus.main')
 
 local function checkAccess()
     while not cache.vehicle do
@@ -10,12 +11,7 @@ local function checkAccess()
     local vehicleClass = GetVehicleClass(cache.vehicle)
     local hasJob = true
 
-    if (zone.deniedClasses and zone.deniedClasses[vehicleClass]) or (zone.allowedClasses and not zone.allowedClasses[vehicleClass]) then
-        allowAccess = false
-        return
-    end
-
-    if zone.modelBlacklist and zone.modelBlacklist[GetEntityModel(cache.vehicle)] then
+    if (zone.deniedClasses and zone.deniedClasses[vehicleClass]) or (zone.allowedClasses and not zone.allowedClasses[vehicleClass]) or (zone.modelBlacklist and zone.modelBlacklist[GetEntityModel(cache.vehicle)]) then
         allowAccess = false
         return
     end
@@ -23,8 +19,8 @@ local function checkAccess()
     if zone.job and QBX?.PlayerData then
         hasJob = false
         local playerJob = QBX.PlayerData.job.name
-        for _, job in ipairs(zone.job) do
-            if playerJob == job then
+        for i = 1, #zone.job do
+            if playerJob == zone.job[i] then
                 hasJob = true
                 break
             end
@@ -85,7 +81,7 @@ CreateThread(function()
                     if IsControlJustPressed(0, 38) then
                         SetEntityVelocity(cache.vehicle, 0.0, 0.0, 0.0)
                         lib.hideTextUI()
-                        require('client.menus.main')()
+                        openCustoms()
                     end
                 end
             end,
