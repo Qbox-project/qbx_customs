@@ -2,7 +2,7 @@
     "notifications": {
         "success": {
             "repaired": "Fahrzeug repariert!",
-            "paid": "Du hast $%s von deinem Bankkonto bezahlt"
+            "paid": "Du hast $%s von deinem Bankrechnung bezahlt"
         },
         "error": {
             "money": "Du hast nicht genug Geld!",
