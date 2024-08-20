@@ -87,7 +87,7 @@ CreateThread(function()
             end,
         })
 
-        if not v.hideBlip then
+        if not v.hideBlip and v.blip then
             local center = calculatePolyzoneCenter(v.points)
             local blip = AddBlipForCoord(center.x, center.y, center.z)
             SetBlipSprite(blip, v.blip.sprite or 72)
