@@ -7,7 +7,7 @@ return {
         --         freeRepair = { 'police' }, -- Provides free repairs to specified job
         --         freeMods = { 'police' }, -- provides free modifications to specified job
         --         job = { 'police' }, -- Restricts customs access to a specific job (useful for restricting to mechanics, police, ambulance, etc)
-        --         hideBlip = false, -- Swith for enable / disable blips for the location
+        --         hideBlip = false, -- When true, the blip for this location is hidden
         --         blip = {
         --             sprite = 72, -- https://docs.fivem.net/docs/game-references/blips/#blips
         --             color = 3,   -- https://docs.fivem.net/docs/game-references/blips/#blip-colors
