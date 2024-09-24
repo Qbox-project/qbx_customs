@@ -104,7 +104,7 @@ return {
                 sprite = 72,
                 color = 3,
                 scale = 0.8,
-                label = 'Benny\'s Motorworks',
+                label = "Benny's Motorworks",
             },
             blipColor = 5,
             points = {
