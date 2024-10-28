@@ -4,7 +4,7 @@ game 'gta5'
 author 'Jorn#0008'
 description 'qbx_customs'
 repository 'https://github.com/Qbox-project/qbx_customs'
-version '1.0.0'
+version '0.1.0'
 
 ox_lib 'locale'
 
