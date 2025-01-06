@@ -44,6 +44,7 @@ end
 
 local menu = {
     id = 'customs-paint',
+    title = locale('menus.colors.paint'),
     canClose = true,
     disableInput = false,
     position = 'top-left',
