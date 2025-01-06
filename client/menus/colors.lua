@@ -338,25 +338,24 @@ local menu = {
     position = 'top-left',
 }
 
-local function onSubmit(selected, scrollIndex, args)
+local function onSubmit(selected, scrollIndex, args, bypassPayment)
     for _, v in pairs(menu.options) do
         if not v.args?.menu then v.restore() end
     end
 
     local subMenuName = args?.menu
     if subMenuName then
-        local menuId = require(subMenuName)(args?.menuArgs and table.unpack(args.menuArgs))
+        local menuId = require(subMenuName)(bypassPayment)
         lib.showMenu(menuId, 1)
         return
     end
-
 
     local duplicate, desc = menu.options[selected].set(scrollIndex)
 
     local success = InstallMod(duplicate, 'colors', {
         description = desc,
         icon = 'fa-solid fa-spray-can',
-    })
+    }, nil, bypassPayment)
 
     if not success then menu.options[selected].restore() end
 
@@ -382,8 +381,10 @@ menu.onSelected = function(selected)
     ColorsLastIndex = selected
 end
 
-return function()
+return function(bypassPayment)
     menu.options = colors()
-    lib.registerMenu(menu, onSubmit)
+    lib.registerMenu(menu, function(selected, scrollIndex, args)
+        onSubmit(selected, scrollIndex, args, bypassPayment)
+    end)
     return menu.id
 end

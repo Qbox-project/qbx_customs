@@ -71,7 +71,7 @@ local menu = {
     options = {},
 }
 
-local function onSubmit(selected, scrollIndex)
+local function onSubmit(selected, scrollIndex, bypassPayment)
     local option = menu.options[selected]
 
     for _, v in pairs(menu.options) do
@@ -82,7 +82,7 @@ local function onSubmit(selected, scrollIndex)
 
     local success = InstallMod(duplicate, 'colors', {
         description = desc,
-    })
+    }, nil, bypassPayment)
 
     if not success then menu.options[selected].restore() end
 
@@ -108,8 +108,10 @@ menu.onClose = function()
     lib.showMenu('customs-colors', ColorsLastIndex)
 end
 
-return function()
+return function(bypassPayment)
     menu.options = neon()
-    lib.registerMenu(menu, onSubmit)
+    lib.registerMenu(menu, function(selected, scrollIndex)
+        onSubmit(selected, scrollIndex, bypassPayment)
+    end)
     return menu.id
 end

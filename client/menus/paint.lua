@@ -50,19 +50,23 @@ local menu = {
     options = {},
 }
 
-local function onSubmit(selected, scrollIndex)
+local function onSubmit(selected, scrollIndex, bypassPayment)
     local option = menu.options[selected]
-    local duplicate = option.ids[scrollIndex] == originalPaint[primaryPaint and 'primary' or 'secondary']
+
+    for _, v in pairs(menu.options) do
+        v.restore()
+    end
+
+    local duplicate, desc = option.set(scrollIndex)
 
     local success = InstallMod(duplicate, 'colors', {
-        description = locale('menus.general.applied', option.values[scrollIndex]),
-        icon = 'fas fa-paint-brush',
-    })
+        description = desc,
+    }, nil, bypassPayment)
 
-    if not success then SetVehicleColours(vehicle, originalPaint.primary, originalPaint.secondary) end
+    if not success then menu.options[selected].restore() end
 
-    lib.setMenuOptions('customs-paint', paintMods())
-    lib.showMenu('customs-paint', lastIndex)
+    lib.setMenuOptions(menu.id, paintMods())
+    lib.showMenu(menu.id, lastIndex)
 end
 
 menu.onClose = function()
@@ -86,10 +90,10 @@ menu.onSideScroll = function(selected, scrollIndex)
 end
 
 ---@param primary boolean
-return function(primary)
-    primaryPaint = primary
+return function(bypassPayment)
     menu.options = paintMods()
-    menu.title = primaryPaint and locale('menus.paint.primary') or locale('menus.paint.secondary')
-    lib.registerMenu(menu, onSubmit)
+    lib.registerMenu(menu, function(selected, scrollIndex)
+        onSubmit(selected, scrollIndex, bypassPayment)
+    end)
     return menu.id
 end
