@@ -93,7 +93,7 @@ local menu = {
     options = {}
 }
 
-local function onSubmit(selected, scrollIndex, bypassPayment)
+local function onSubmit(selected, scrollIndex)
     local option = menu.options[selected]
     local label = option.values[scrollIndex]
     local duplicate = option.id == originalWheelType and scrollIndex - 1 == originalMod
@@ -105,20 +105,17 @@ local function onSubmit(selected, scrollIndex, bypassPayment)
     end
 
     local success = InstallMod(duplicate, 'cosmetic', {
-        description = label,
-    }, nil, bypassPayment)
+        description = locale('menus.wheels.installed', option.label, label),
+    })
 
     if not success then
         SetVehicleWheelType(vehicle, originalWheelType)
         SetVehicleMod(vehicle, 23, originalMod, false)
-        if option.id == 6 then
-            SetVehicleMod(vehicle, 24, originalRearWheel, false)
-        end
-        return
+        SetVehicleMod(vehicle, 24, originalRearWheel, false)
     end
 
     lib.setMenuOptions(menu.id, wheels())
-    lib.showMenu(menu.id, wheelsLastIndex)
+    lib.showMenu(menu.id, lastIndex)
 end
 
 menu.onSideScroll = function(selected, scrollIndex)
@@ -139,10 +136,8 @@ menu.onClose = function()
     lib.showMenu('customs-parts', partsLastIndex)
 end
 
-return function(bypassPayment)
+return function()
     menu.options = wheels()
-    lib.registerMenu(menu, function(selected, scrollIndex)
-        onSubmit(selected, scrollIndex, bypassPayment)
-    end)
+    lib.registerMenu(menu, onSubmit)
     return menu.id
 end

@@ -34,8 +34,7 @@
             "primary": "Paint primary",
             "secondary": "Paint secondary",
             "neon": "Neon",
-            "cosmetics_colors": "Cosmetics - Colors",
-            "paint": "Paint Options"
+            "cosmetics_colors": "Cosmetics - Colors"
         },
         "neon": {
             "title": "Neon",

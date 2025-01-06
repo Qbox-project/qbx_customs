@@ -77,8 +77,8 @@ local function disableControls()
     end)
 end
 
-local function repair(bypassPayment)
-    local success = lib.callback.await('qbx_customs:server:repair', false, GetVehicleBodyHealth(vehicle), bypassPayment)
+local function repair()
+    local success = lib.callback.await('qbx_customs:server:repair', false, GetVehicleBodyHealth(vehicle))
     if success then
         exports.qbx_core:Notify(locale('notifications.success.repaired'), 'success')
         qbx.playAudio({
@@ -99,13 +99,13 @@ local function repair(bypassPayment)
     lib.showMenu(menu.id, 1)
 end
 
-local function onSubmit(selected, _, args, bypassPayment)
+local function onSubmit(selected, _, args)
     if menu.options[selected].label == locale('menus.main.repair') then
         lib.hideMenu(false)
-        repair(bypassPayment)
+        repair()
         return
     end
-    local menuId = require(args.menu)(bypassPayment)
+    local menuId = require(args.menu)()
     lib.showMenu(menuId, 1)
 end
 
@@ -114,38 +114,27 @@ menu.onSelected = function(selected)
     mainLastIndex = selected
 end
 
-local isExportOpen = false
-
-local function openMenu(bypassPayment, fromExport)
-    if not cache.vehicle or inMenu then return end
-    vehicle = cache.vehicle
-    isExportOpen = fromExport
-    SetVehicleModKit(vehicle, 0)
-    menu.options = main()
-    lib.registerMenu(menu, function(selected, _, args)
-        onSubmit(selected, _, args, bypassPayment)
-    end)
-    lib.showMenu(menu.id, 1)
-    disableControls()
-    startDragCam(vehicle)
-end
-
 menu.onClose = function()
     inMenu = false
     stopDragCam()
-    if not isExportOpen then
-        lib.showTextUI(locale('textUI.tune'), {
-            icon = 'fa-solid fa-car',
-            position = 'left-center',
-        })
-    end
+    lib.showTextUI(locale('textUI.tune'), {
+        icon = 'fa-solid fa-car',
+        position = 'left-center',
+    })
     TriggerServerEvent('qbx_customs:server:saveVehicleProps')
 end
 
-exports('openCustoms', function()
-    openMenu(true, true)
+lib.callback.register('qbx_customs:client:vehicleProps', function()
+    return lib.getVehicleProperties(vehicle)
 end)
 
-return function(bypassPayment)
-    openMenu(bypassPayment, false)
+return function()
+    if not cache.vehicle or inMenu then return end
+    vehicle = cache.vehicle
+    SetVehicleModKit(vehicle, 0)
+    menu.options = main()
+    lib.registerMenu(menu, onSubmit)
+    lib.showMenu(menu.id, 1)
+    disableControls()
+    startDragCam(vehicle)
 end

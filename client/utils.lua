@@ -21,13 +21,13 @@ end
 ---@param mod 'repair' | 'cosmetic' | 'colors' | 11 | 12 | 13 | 15 | 18
 ---@param props NotifyProps?
 ---@param level number?
----@param bypassPayment boolean?
-function InstallMod(duplicate, mod, props, level, bypassPayment)
+function InstallMod(duplicate, mod, props, level)
     if duplicate then
         exports.qbx_core:Notify(locale('notifications.error.alreadyInstalled'), 'error')
         return false
     end
-    local success = lib.callback.await('qbx_customs:server:pay', false, mod, level, bypassPayment)
+
+    local success = lib.callback.await('qbx_customs:server:pay', false, mod, level)
     if success then
         exports.qbx_core:Notify(
             props?.title or locale('notifications.props.installTitle'),

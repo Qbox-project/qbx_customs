@@ -31,8 +31,7 @@ local function removeMoney(source, amount)
 end
 
 -- Won't charge money for mods if the player's job is in the list
-lib.callback.register('qbx_customs:server:pay', function(source, mod, level, bypassPayment)
-    if bypassPayment then return true end
+lib.callback.register('qbx_customs:server:pay', function(source, mod, level)
     local zone = lib.callback.await('qbx_customs:client:zone', source)
 
     for i, v in ipairs(sharedConfig.zones) do

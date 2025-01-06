@@ -102,23 +102,24 @@ local menu = {
     position = 'top-left',
 }
 
-local function onSubmit(selected, scrollIndex, args, bypassPayment)
+local function onSubmit(selected, scrollIndex, args)
     for _, v in pairs(menu.options) do
         if not v.args?.menu then v.restore() end
     end
 
     local subMenuName = args?.menu
     if subMenuName then
-        local menuId = require(subMenuName)(bypassPayment)
+        local menuId = require(subMenuName)(args?.menuArgs and table.unpack(args.menuArgs))
         lib.showMenu(menuId, 1)
         return
     end
+
 
     local duplicate, desc = menu.options[selected].set(scrollIndex)
 
     local success = InstallMod(duplicate, 'cosmetic', {
         description = desc,
-    }, nil, bypassPayment)
+    })
 
     if not success then menu.options[selected].restore() end
 
@@ -144,10 +145,8 @@ menu.onSelected = function(selected)
     partsLastIndex = selected
 end
 
-return function(bypassPayment)
+return function()
     menu.options = parts()
-    lib.registerMenu(menu, function(selected, scrollIndex, args)
-        onSubmit(selected, scrollIndex, args, bypassPayment)
-    end)
+    lib.registerMenu(menu, onSubmit)
     return menu.id
 end

@@ -94,7 +94,7 @@ local menu = {
     position = 'top-left',
 }
 
-local function onSubmit(selected, scrollIndex, bypassPayment)
+local function onSubmit(selected, scrollIndex)
     for _, v in pairs(menu.options) do
         v.restore()
     end
@@ -103,7 +103,7 @@ local function onSubmit(selected, scrollIndex, bypassPayment)
 
     local success = InstallMod(duplicate, menu.options[selected].id, {
         description = desc,
-    }, scrollIndex, bypassPayment)
+    }, scrollIndex)
 
     if not success then menu.options[selected].restore() end
 
@@ -129,10 +129,8 @@ menu.onSelected = function(selected)
     lastIndex = selected
 end
 
-return function(bypassPayment)
+return function()
     menu.options = performance()
-    lib.registerMenu(menu, function(selected, scrollIndex)
-        onSubmit(selected, scrollIndex, bypassPayment)
-    end)
+    lib.registerMenu(menu, onSubmit)
     return menu.id
 end

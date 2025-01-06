@@ -43,7 +43,7 @@ local menu = {
     options = {},
 }
 
-local function onSubmit(selected, scrollIndex, bypassPayment)
+local function onSubmit(selected, scrollIndex)
     local option = menu.options[selected]
 
     for _, v in pairs(menu.options) do
@@ -54,7 +54,7 @@ local function onSubmit(selected, scrollIndex, bypassPayment)
 
     local success = InstallMod(duplicate, 'cosmetic', {
         description = desc,
-    }, nil, bypassPayment)
+    })
 
     if not success then menu.options[selected].restore() end
 
@@ -80,10 +80,8 @@ menu.onClose = function()
     lib.showMenu(mainMenuId, mainLastIndex)
 end
 
-return function(bypassPayment)
+return function()
     menu.options = extras()
-    lib.registerMenu(menu, function(selected, scrollIndex)
-        onSubmit(selected, scrollIndex, bypassPayment)
-    end)
+    lib.registerMenu(menu, onSubmit)
     return menu.id
 end
