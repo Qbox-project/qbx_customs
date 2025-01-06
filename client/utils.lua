@@ -27,7 +27,6 @@ function InstallMod(duplicate, mod, props, level, bypassPayment)
         exports.qbx_core:Notify(locale('notifications.error.alreadyInstalled'), 'error')
         return false
     end
-    print(31)
     local success = lib.callback.await('qbx_customs:server:pay', false, mod, level, bypassPayment)
     if success then
         exports.qbx_core:Notify(
