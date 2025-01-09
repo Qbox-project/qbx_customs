@@ -6,6 +6,7 @@ local dragcam = require('client.dragcam')
 local startDragCam = dragcam.startDragCam
 local stopDragCam = dragcam.stopDragCam
 local config = require 'config.client'
+openedWithExports = false
 
 local menu = {
     id = mainMenuId,
@@ -117,10 +118,12 @@ end
 menu.onClose = function()
     inMenu = false
     stopDragCam()
-    lib.showTextUI(locale('textUI.tune'), {
-        icon = 'fa-solid fa-car',
-        position = 'left-center',
-    })
+    if not openedWithExports then
+        lib.showTextUI(locale('textUI.tune'), {
+            icon = 'fa-solid fa-car',
+            position = 'left-center',
+        })
+    end
     TriggerServerEvent('qbx_customs:server:saveVehicleProps')
 end
 
@@ -128,7 +131,21 @@ lib.callback.register('qbx_customs:client:vehicleProps', function()
     return lib.getVehicleProperties(vehicle)
 end)
 
+exports('OpenMenu', function()
+    openedWithExports = true
+    if not cache.vehicle or inMenu then return false end
+    vehicle = cache.vehicle
+    SetVehicleModKit(vehicle, 0)
+    menu.options = main()
+    lib.registerMenu(menu, onSubmit)
+    lib.showMenu(menu.id, 1)
+    disableControls()
+    startDragCam(vehicle)
+    return true
+end)
+
 return function()
+    openedWithExports = false
     if not cache.vehicle or inMenu then return end
     vehicle = cache.vehicle
     SetVehicleModKit(vehicle, 0)
