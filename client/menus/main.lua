@@ -131,7 +131,7 @@ lib.callback.register('qbx_customs:client:vehicleProps', function()
     return lib.getVehicleProperties(vehicle)
 end)
 
-exports('OpenMenu', function()
+exports('OpenCustoms', function()
     openedWithExports = true
     if not cache.vehicle or inMenu then return false end
     vehicle = cache.vehicle
