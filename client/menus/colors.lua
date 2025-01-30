@@ -222,7 +222,7 @@ local function livery()
     local oldLiveryMethod = GetVehicleLivery(vehicle)
     local newLiveryMethod = GetVehicleMod(vehicle, 48)
 
-    if newLiveryMethod >= 0 or oldLiveryMethod >= 0 then
+    if newLiveryMethod >= 0 or oldLiveryMethod >= -1 then
         originalLivery = {
             index = newLiveryMethod,
             old = false
