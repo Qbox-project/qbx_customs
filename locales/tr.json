@@ -1,0 +1,93 @@
+{
+  "notifications": {
+    "success": {
+      "repaired": "Araç tamir edildi!",
+      "paid": "Banka hesabından $%s ödedin"
+    },
+    "error": {
+      "money": "Yeterli paran yok!",
+      "alreadyInstalled": "Bu mod zaten yüklü"
+    },
+    "props": {
+      "installTitle": "Özel Modlar"
+    }
+  },
+  "dragCam": {
+    "zoomIn": "Yakınlaştırmayı arttır",
+    "zoomOut": "Yakınlaştırmayı azalt",
+    "toggleDoors": "Kapıları aç/kapa",
+    "changeView": "Birinci şahıs görünümünü aç/kapa"
+  },
+  "textUI": {
+    "tune": "[E]'ye basarak arabanı ayarla"
+  },
+  "menus": {
+    "main": {
+      "title": "Popcorn Customs",
+      "repair": "Tamir",
+      "performance": "Performans",
+      "parts": "Kosmetik - Parçalar",
+      "colors": "Kosmetik - Renkler",
+      "extras": "Ekstralar"
+    },
+    "colors": {
+      "primary": "Birincil boya",
+      "secondary": "İkincil boya",
+      "neon": "Neon",
+      "cosmetics_colors": "Kosmetik - Renkler"
+    },
+    "neon": {
+      "title": "Neon",
+      "neon": "Neon %s%s",
+      "color": "Neon rengi",
+      "installed": "%s neon yüklendi"
+    },
+    "paint": {
+      "title": "Kosmetik - Renkler",
+      "primary": "Birincil boya",
+      "secondary": "İkincil boya"
+    },
+    "parts": {
+      "title": "Kosmetik - Parçalar",
+      "wheels": "Tekerlekler"
+    },
+    "performance": {
+      "title": "Performans",
+      "turbo": "Turbo"
+    },
+    "wheels": {
+      "title": "Tekerlekler",
+      "bikeRear": "Motosiklet arka tekerleği",
+      "installed": "%s %s yüklendi"
+    },
+    "options": {
+      "interior": "İç Mekan",
+      "livery": "Livery",
+      "pearlescent": "Sedefli",
+      "plateIndex": {
+        "title": "Plaka İndeksi",
+        "installed": "%s plaka yüklendi"
+      },
+      "tyreSmoke": "Lastik dumanı",
+      "wheelColor": "Tekerlek rengi",
+      "windowTint": {
+        "title": "Cam Filmi",
+        "installed": "%s cam filmi yüklendi"
+      },
+      "xenon": {
+        "title": "Xenon",
+        "installed": "%s xenon yüklendi"
+      }
+    },
+    "general": {
+      "stock": "Orijinal",
+      "enabled": "Etkin",
+      "disabled": "Devre Dışı",
+      "installed": "%s yüklendi",
+      "applied": "%s uygulandı"
+    }
+  },
+  "general": {
+    "payReason": "Özel Modlar"
+  }
+}
