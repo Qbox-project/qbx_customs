@@ -9,7 +9,7 @@ A free-to-use and modify vehicle customization resource forked from [Popcornrp-c
 
 # Dependencies
 
-- [ox_lib](https://github.com/overextended/ox_lib)
+- [ox_lib](https://github.com/CommunityOx/ox_lib)
 - [qbx_core](https://github.com/Qbox-project/qbx_core)
 
 # Features
