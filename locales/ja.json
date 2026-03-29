@@ -1,0 +1,93 @@
+{
+    "notifications": {
+        "success": {
+            "repaired": "車両を修理しました！",
+            "paid": "銀行口座から $%s を支払いました"
+        },
+        "error": {
+            "money": "お金が足りません！",
+            "alreadyInstalled": "このモッドはすでにインストール済みです"
+        },
+        "props": {
+            "installTitle": "カスタム"
+        }
+    },
+    "dragCam": {
+        "zoomIn": "ズームイン",
+        "zoomOut": "ズームアウト",
+        "toggleDoors": "ドアを開閉",
+        "changeView": "一人称視点を切り替え"
+    },
+    "textUI": {
+        "tune":  "[E] を押して車をチューニング"
+    },
+    "menus": {
+        "main": {
+            "title": "ポップコーンカスタム",
+            "repair": "修理",
+            "performance": "パフォーマンス",
+            "parts": "外装 - パーツ",
+            "colors": "外装 - カラー",
+            "extras": "エクストラ"
+        },
+        "colors": {
+            "primary": "メインカラー塗装",
+            "secondary": "サブカラー塗装",
+            "neon": "ネオン",
+            "cosmetics_colors": "外装 - カラー"
+        },
+        "neon": {
+            "title": "ネオン",
+            "neon": "ネオン %s%s",
+            "color": "ネオンカラー",
+            "installed": "%s ネオンを装着しました"
+        },
+        "paint": {
+            "title": "外装 - カラー",
+            "primary": "メインカラー",
+            "secondary": "サブカラー"
+        },
+        "parts": {
+            "title": "外装 - パーツ",
+            "wheels": "ホイール"
+        },
+        "performance": {
+            "title": "パフォーマンス",
+            "turbo": "ターボ"
+        },
+        "wheels": {
+            "title": "ホイール",
+            "bikeRear": "バイク後輪",
+            "installed": "%s %s を装着しました"
+        },
+        "options": {
+            "interior": "インテリア",
+            "livery": "ライバリー",
+            "pearlescent": "パールカラー",
+            "plateIndex": {
+                "title": "ナンバープレート",
+                "installed": "%s プレートを装着しました"
+            },
+            "tyreSmoke": "タイヤスモーク",
+            "wheelColor": "ホイールカラー",
+            "windowTint": {
+                "title": "ウィンドウフィルム",
+                "installed": "%s ウィンドウを装着しました"
+            },
+            "xenon": {
+                "title": "キセノン",
+                "installed": "%s キセノンを装着しました"
+            }
+        },
+        "general": {
+            "stock": "標準",
+            "enabled": "有効",
+            "disabled": "無効",
+            "installed": "%s を装着しました",
+            "applied": "%s を適用しました"
+        }
+    },
+    "general": {
+        "payReason": "カスタム"
+    }
+}
