@@ -130,7 +130,17 @@ menu.onSelected = function(selected)
 end
 
 return function()
-    menu.options = performance()
+    local options = performance()
+
+    if #options == 0 then
+        exports.qbx_core:Notify(locale(
+            'notifications.inform.carNoPerformanceUpgrades'
+        ))
+
+        return mainMenuId
+    end
+
+    menu.options = options
     lib.registerMenu(menu, onSubmit)
     return menu.id
 end

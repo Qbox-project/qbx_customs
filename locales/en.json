@@ -8,6 +8,9 @@
             "money": "You don't have enough money!",
             "alreadyInstalled": "You already have this mod installed"
         },
+        "inform": {
+            "carNoPerformanceUpgrades": "This vehicle has no performance upgrades available"
+        },
         "props": {
             "installTitle": "Customs"
         }
