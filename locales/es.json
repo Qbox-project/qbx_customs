@@ -1,0 +1,96 @@
+{
+    "notifications": {
+        "success": {
+            "repaired": "¡Vehículo reparado!",
+            "paid": "Has pagado $%s desde tu cuenta bancaria"
+        },
+        "error": {
+            "money": "¡No tienes suficiente dinero!",
+            "alreadyInstalled": "Ya tienes esta modificación instalada"
+        },
+        "inform": {
+            "carNoPerformanceUpgrades": "Este vehículo no tiene mejoras de rendimiento disponibles"
+        },
+        "props": {
+            "installTitle": "Customs"
+        }
+    },
+    "dragCam": {
+        "zoomIn": "Aumentar zoom",
+        "zoomOut": "Reducir zoom",
+        "toggleDoors": "Abrir/Cerrar puertas",
+        "changeView": "Cambiar vista en primera persona"
+    },
+    "textUI": {
+        "tune": "Pulsa [E] para tunear tu coche"
+    },
+    "menus": {
+        "main": {
+            "title": "Popcorn Customs",
+            "repair": "Reparar",
+            "performance": "Rendimiento",
+            "parts": "Estética - Piezas",
+            "colors": "Estética - Colores",
+            "extras": "Extras"
+        },
+        "colors": {
+            "primary": "Pintura primaria",
+            "secondary": "Pintura secundaria",
+            "neon": "Neón",
+            "cosmetics_colors": "Estética - Colores"
+        },
+        "neon": {
+            "title": "Neón",
+            "neon": "Neón %s%s",
+            "color": "Color del neón",
+            "installed": "Neón %s instalado"
+        },
+        "paint": {
+            "title": "Estética - Colores",
+            "primary": "Pintura primaria",
+            "secondary": "Pintura secundaria"
+        },
+        "parts": {
+            "title": "Estética - Piezas",
+            "wheels": "Llantas"
+        },
+        "performance": {
+            "title": "Rendimiento",
+            "turbo": "Turbo"
+        },
+        "wheels": {
+            "title": "Llantas",
+            "bikeRear": "Llanta trasera de moto",
+            "installed": "%s %s instalado"
+        },
+        "options": {
+            "interior": "Interior",
+            "livery": "Vinilo",
+            "pearlescent": "Perlado",
+            "plateIndex": {
+                "title": "Tipo de matrícula",
+                "installed": "Matrícula %s instalada"
+            },
+            "tyreSmoke": "Humo de neumáticos",
+            "wheelColor": "Color de llantas",
+            "windowTint": {
+                "title": "Tintado de ventanas",
+                "installed": "Ventanas %s instaladas"
+            },
+            "xenon": {
+                "title": "Xenón",
+                "installed": "Xenón %s instalado"
+            }
+        },
+        "general": {
+            "stock": "De serie",
+            "enabled": "Activado",
+            "disabled": "Desactivado",
+            "installed": "%s instalado",
+            "applied": "%s aplicado"
+        }
+    },
+    "general": {
+        "payReason": "Customs"
+    }
+}
