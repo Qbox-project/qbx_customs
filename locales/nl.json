@@ -1,0 +1,96 @@
+{
+    "notifications": {
+        "success": {
+            "repaired": "Voertuig gerepareerd!",
+            "paid": "U heeft $%sbetaald vanaf uw bankrekening"
+        },
+        "error": {
+            "money": "Je hebt niet genoeg geld!",
+            "alreadyInstalled": "Je hebt deze mod al geïnstalleerd"
+        },
+        "inform": {
+            "carNoPerformanceUpgrades": "Voor dit voertuig zijn geen prestatie-upgrades beschikbaar"
+        },
+        "props": {
+            "installTitle": "Douane"
+        }
+    },
+    "dragCam": {
+        "zoomIn": "Zoom vergroten",
+        "zoomOut": "Zoom verkleinen",
+        "toggleDoors": "Schakel deuren",
+        "changeView": "Schakel de eerste persoonsweergave in"
+    },
+    "textUI": {
+        "tune": "Druk op [E] om uw auto af te stemmen"
+    },
+    "menus": {
+        "main": {
+            "title": "Popcorn-gebruiken",
+            "repair": "Reparatie",
+            "performance": "Prestatie",
+            "parts": "Cosmetica - Onderdelen",
+            "colors": "Cosmetica - Kleuren",
+            "extras": "Extra's"
+        },
+        "colors": {
+            "primary": "Verf primair",
+            "secondary": "Verf secundair",
+            "neon": "Neon",
+            "cosmetics_colors": "Cosmetica - Kleuren"
+        },
+        "neon": {
+            "title": "Neon",
+            "neon": "Neon%s%s",
+            "color": "Neonkleur",
+            "installed": "%sneon geïnstalleerd"
+        },
+        "paint": {
+            "title": "Cosmetica - Kleuren",
+            "primary": "Primaire verf",
+            "secondary": "Secundaire verf"
+        },
+        "parts": {
+            "title": "Cosmetica - Onderdelen",
+            "wheels": "Wielen"
+        },
+        "performance": {
+            "title": "Prestatie",
+            "turbo": "Turbo"
+        },
+        "wheels": {
+            "title": "Wielen",
+            "bikeRear": "Achterwiel van de fiets",
+            "installed": "%s%sgeïnstalleerd"
+        },
+        "options": {
+            "interior": "Interieur",
+            "livery": "Kleurstelling",
+            "pearlescent": "Parelmoer",
+            "plateIndex": {
+                "title": "Plaatindex",
+                "installed": "%s-plaat geïnstalleerd"
+            },
+            "tyreSmoke": "Bandenrook",
+            "wheelColor": "Kleur van het wiel",
+            "windowTint": {
+                "title": "Raamtint",
+                "installed": "%sWindows geïnstalleerd"
+            },
+            "xenon": {
+                "title": "Xenon",
+                "installed": "%sxenon geïnstalleerd"
+            }
+        },
+        "general": {
+            "stock": "Voorraad",
+            "enabled": "Ingeschakeld",
+            "disabled": "Gehandicapt",
+            "installed": "%sgeïnstalleerd",
+            "applied": "%stoegepast"
+        }
+    },
+    "general": {
+        "payReason": "Douane"
+    }
+}
