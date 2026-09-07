@@ -12,7 +12,7 @@
             "carNoPerformanceUpgrades": "Voor dit voertuig zijn geen prestatie-upgrades beschikbaar"
         },
         "props": {
-            "installTitle": "Douane"
+            "installTitle": "Voertuigaanpassingen"
         }
     },
     "dragCam": {
@@ -26,7 +26,7 @@
     },
     "menus": {
         "main": {
-            "title": "Popcorn-gebruiken",
+            "title": "Popcorn Customs",
             "repair": "Reparatie",
             "performance": "Prestatie",
             "parts": "Cosmetica - Onderdelen",
@@ -60,7 +60,7 @@
         },
         "wheels": {
             "title": "Wielen",
-            "bikeRear": "Achterwiel van de fiets",
+            "bikeRear": "Achterwiel van de motor",
             "installed": "%s%sgeïnstalleerd"
         },
         "options": {
@@ -75,7 +75,7 @@
             "wheelColor": "Kleur van het wiel",
             "windowTint": {
                 "title": "Raamtint",
-                "installed": "%sWindows geïnstalleerd"
+                "installed": "%s raamtint geïnstalleerd"
             },
             "xenon": {
                 "title": "Xenon",
@@ -83,14 +83,14 @@
             }
         },
         "general": {
-            "stock": "Voorraad",
+            "stock": "Standaard",
             "enabled": "Ingeschakeld",
-            "disabled": "Gehandicapt",
+            "disabled": "Uitgeschakeld",
             "installed": "%sgeïnstalleerd",
             "applied": "%stoegepast"
         }
     },
     "general": {
-        "payReason": "Douane"
+        "payReason": "Voertuigaanpassingen"
     }
 }
